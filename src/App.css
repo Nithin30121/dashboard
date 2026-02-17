@@ -1,0 +1,267 @@
+:root{
+  --bg1:#070a1a;
+  --bg2:#141b3a;
+}
+
+*{ box-sizing:border-box; }
+body{ margin:0; font-family: system-ui, Arial; }
+
+.page{
+  min-height:100vh;
+  padding:40px 24px 60px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  /* simple “premium” space bg (no image required yet) */
+  background:
+    radial-gradient(1200px 600px at 50% 20%, rgba(255,255,255,0.10), transparent 60%),
+    radial-gradient(900px 500px at 50% 100%, rgba(120,90,255,0.12), transparent 60%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  overflow:hidden;
+}
+
+/* subtle star noise */
+.bgOverlay{
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.35) 1px, transparent 1px);
+  background-size: 90px 90px;
+  opacity:0.12;
+  pointer-events:none;
+}
+
+.title{
+  position:relative;
+  margin:0 0 28px;
+  color: rgba(255,255,255,0.85);
+  font-weight:900;
+  letter-spacing:0.18em;
+  font-size:22px;
+}
+
+.cardsRow{
+  position:relative;
+  display:flex;
+  gap:22px;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:flex-start;
+}
+
+/* ========== CARD BASE ========== */
+.card{
+  width:380px;           /* slightly wider */
+  height: 640px;         /* more vertical space */
+  border-radius:18px;
+  padding:10px;
+  box-shadow: 0 22px 50px rgba(0,0,0,0.55);
+}
+
+
+
+/* inner frame */
+.cardInner{
+  height: 100%;                  /* ✅ fill the fixed card height */
+  border-radius:14px;
+  padding:14px 14px 16px;
+  border: 1px solid rgba(255,255,255,0.16);
+  backdrop-filter: blur(2px);
+
+  display: flex;                 /* ✅ layout control */
+  flex-direction: column;
+}
+
+
+/* header */
+.cardHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.cardName{
+  font-weight:900;
+  font-size:18px;
+  color: rgba(255,255,255,0.92);
+}
+
+.cardMeta{
+  font-weight:900;
+  font-size:12px;
+  letter-spacing:0.08em;
+  color: rgba(255,255,255,0.70);
+}
+
+/* image frame */
+.imageFrame{
+  border-radius:14px;
+  padding:8px;
+  border: 2px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.20);
+  margin-bottom:14px;
+}
+
+.imageArea{
+  height:210px;                  /* ✅ reduced so layout fits */
+  border-radius:10px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(255,255,255,0.08);
+}
+
+
+
+.cardImage{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.imagePlaceholder{
+  font-weight:900;
+  letter-spacing:0.12em;
+  color: rgba(255,255,255,0.45);
+}
+
+/* stats */
+.statLabel{
+  text-align:center;
+  font-weight:800;
+  color: rgba(255,255,255,0.78);
+  margin-top:6px;
+}
+
+.statValue{
+  text-align:center;
+  font-weight:1000;
+  font-size:26px;
+  color: rgba(255,255,255,0.95);
+  margin-top:4px;
+}
+
+/* trend badge */
+.trend{
+  margin:12px auto 14px;
+  width: fit-content;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  padding:8px 12px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:13px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(0,0,0,0.22);
+  color: rgba(255,255,255,0.9);
+}
+
+.trendIcon{ font-size:14px; }
+
+/* abilities */
+.abilitiesLabel{
+  margin-top:2px;
+  font-weight:900;
+  color: rgba(255,255,255,0.78);
+  text-align:left;
+}
+
+.abilitiesList{
+  margin-top:10px;
+  display:grid;
+  gap:8px;
+  color: rgba(255,255,255,0.90);
+  font-weight:700;
+}
+
+.abilityRow{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.dot{
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  background: rgba(255,255,255,0.55);
+}
+
+/* ========== THEMES ========== */
+/* ========== THEMES (with texture) ========== */
+
+.card--purple{
+  border: 2px solid rgba(124,58,237,0.70);
+  background:
+    radial-gradient(900px 500px at 30% 10%, rgba(255,255,255,0.18), transparent 55%),
+    linear-gradient(180deg, rgba(124,58,237,0.78), rgba(124,58,237,0.28));
+  position: relative;
+}
+.card--purple::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  pointer-events:none;
+  opacity:0.20;
+  background-image: radial-gradient(rgba(255,255,255,0.35) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.card--gold{
+  border: 2px solid rgba(234,179,8,0.75);
+  background:
+    radial-gradient(900px 500px at 30% 10%, rgba(255,255,255,0.18), transparent 55%),
+    linear-gradient(180deg, rgba(234,179,8,0.78), rgba(234,179,8,0.25));
+  position: relative;
+}
+.card--gold::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  pointer-events:none;
+  opacity:0.18;
+  background-image: radial-gradient(rgba(255,255,255,0.30) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.card--dark{
+  border: 2px solid rgba(148,163,184,0.35);
+  background:
+    radial-gradient(900px 500px at 30% 10%, rgba(255,255,255,0.14), transparent 55%),
+    linear-gradient(180deg, rgba(51,65,85,0.88), rgba(2,6,23,0.35));
+  position: relative;
+}
+.card--dark::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  pointer-events:none;
+  opacity:0.16;
+  background-image: radial-gradient(rgba(255,255,255,0.22) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.bottomPanel{
+  margin-top: auto;
+  border-radius: 14px;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.18);
+
+  background-image:
+    radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0.10));
+  background-size: 22px 22px, auto;
+
+  /* ✅ KEY: no max-height, allow it to fit */
+}
+
